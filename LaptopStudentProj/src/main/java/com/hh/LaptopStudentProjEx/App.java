@@ -83,6 +83,7 @@ public class App {
 		session.beginTransaction();
 		
 		Query q1 = session.createQuery("from Alien where aid=1");
+		q1.setCacheable(true);
 		
 		a = (Alien)q1.uniqueResult();
 		Alien aa= (Alien)session.get(Alien.class, 1);
@@ -94,8 +95,8 @@ public class App {
 		Session session2 = sf.openSession();
 		session2.beginTransaction();
 		Query q2= session2.createQuery("from Alien where aid=1");
-		
-		a = (Alien)q1.uniqueResult();
+		q2.setCacheable(true);
+		a = (Alien)q2.uniqueResult();
 		System.out.println(a);
 		
 //		a = (Alien) session2.get(Alien.class, 1);
