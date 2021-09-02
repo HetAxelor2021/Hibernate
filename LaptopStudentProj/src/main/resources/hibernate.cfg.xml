@@ -10,6 +10,11 @@
         <property name="connectio.password">axelor</property>
         <property name="hibernate.dialect">org.hibernate.dialect.PostgreSQLDialect</property>
         <property name="show_sql">true</property>
-        <property name="hbm2ddl.auto">create</property>
+        <property name="hbm2ddl.auto">update</property>
+        <property name="hibernate.cache.use_second_level_cache">true</property>
+        <property name="hibernate.cache.region.factory_class">org.hibernate.cache.ehcache.internal.EhcacheRegionFactory</property>
+        <mapping class="com.hh.LaptopStudentProjEx.Alien" />
+       <!-- <mapping class="com.hh.LaptopStudentProjEx.Student" />
+        <mapping class="com.hh.LaptopStudentProjEx.Laptop" /> --> 
     </session-factory>
 </hibernate-configuration>
