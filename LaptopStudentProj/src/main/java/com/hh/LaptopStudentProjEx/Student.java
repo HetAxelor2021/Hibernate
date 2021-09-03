@@ -19,25 +19,22 @@ public class Student {
 	
 	private int marks;
 	
-//	@OneToOne
-//	private Laptop laptop
-////	@OneToMany(mappedBy="student")
-	@ManyToMany(mappedBy="student")
-	private List<Laptop> laptop = new ArrayList<Laptop>();
-//
-	public void setLaptop(List<Laptop> laptop) {
-		this.laptop = laptop;
-	}
-	public List<Laptop> getLaptop() {
-		return laptop;
-	}
-////	public void setLaptop(Laptop laptop) {
-////		this.laptop = laptop;
-////	}
+	@OneToOne
+	private Laptop laptop = new Laptop();
+	
+	
 
 
 	public int getRollno() {
 		return rollno;
+	}
+
+	public Laptop getLaptop() {
+		return laptop;
+	}
+
+	public void setLaptop(Laptop laptop) {
+		this.laptop = laptop;
 	}
 
 	public void setRollno(int rollno) {
@@ -65,4 +62,17 @@ public class Student {
 		return "Student [rollno=" + rollno + ", name=" + name + ", marks=" + marks + "]";
 	}
 	
+//////	@OneToMany(mappedBy="student")
+//	@ManyToMany(mappedBy="student")
+//	private List<Laptop> laptop = new ArrayList<Laptop>();
+////
+//	public void setLaptop(List<Laptop> laptop) {
+//		this.laptop = laptop;
+//	}
+//	public List<Laptop> getLaptop() {
+//		return laptop;
+//	}
+////	public void setLaptop(Laptop laptop) {
+////		this.laptop = laptop;
+////	}
 }
