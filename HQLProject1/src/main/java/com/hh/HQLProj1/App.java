@@ -1,5 +1,6 @@
 package com.hh.HQLProj1;
 
+import java.util.Arrays;
 import java.util.List;
 import java.util.Random;
 
@@ -16,14 +17,33 @@ public class App {
 //		ServiceRegistry registry = new ServiceRegistryBuilder().applySetting(config.getProperties()).buildServiceRegistry();
 		SessionFactory sf = config.buildSessionFactory();
 		Session session  = sf.openSession();
-		
+		int b= 60;
 		session.beginTransaction();
+		Query q = session.createQuery(" select sum(marks) from Student where marks>:b");
+		q.setParameter("b", b);
+		Long marks = (Long) q.uniqueResult();
+		System.out.println(marks);
+		
+//		Query q = session.createQuery("select rollno from Student where marks=50");
+//		Integer ans  = (Integer)q.uniqueResult();
+//		System.out.println(ans);
+		
+//		for(Object marks: students)
+//			System.out.println(marks);
+//			System.out.println(student[0]+" : "+student[1]+" :  "+student[2]);
 		
 		
-		Query q = session.createQuery(" from Student where rollno=7");
-		Student student = (Student)q.uniqueResult();
 		
-		System.out.println(student);
+//		Object[] student = (Object[])q.uniqueResult();
+		
+		
+		
+//		for(Object o: student) {
+//			System.out.println(o);
+//		}
+		
+		
+//		System.out.println(student);
 //		List<Student> students = q.list();
 //		
 //		for(Student s: students) {
