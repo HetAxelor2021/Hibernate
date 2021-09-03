@@ -24,6 +24,7 @@ public class Alien {
 	private String aname;
 	
 	private String color;
+	
 //	@OneToMany(mappedBy="alien" ,fetch = FetchType.EAGER)
 //	private Collection<Laptop> laps= new ArrayList<Laptop>();
 
