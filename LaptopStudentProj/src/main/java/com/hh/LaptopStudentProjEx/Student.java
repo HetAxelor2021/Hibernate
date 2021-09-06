@@ -20,7 +20,7 @@ public class Student {
 	
 	private int marks;
 	
-	@OneToMany(mappedBy="student",cascade = CascadeType.ALL)
+	@OneToMany(cascade = CascadeType.ALL)
 	private List<Laptop> laptop = new ArrayList<Laptop>();
 	
 	

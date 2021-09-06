@@ -6,23 +6,25 @@ import java.util.Collection;
 import java.util.List;
 import java.util.Random;
 
-import org.checkerframework.checker.units.qual.s;
+//import org.checkerframework.checker.units.qual.s;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.cfg.Configuration;
-import org.hibernate.query.Query;
-import org.hibernate.service.ServiceRegistry;
+//import org.hibernate.query.Query;
+//import org.hibernate.service.ServiceRegistry;
 
 public class App {
 	
 	public static void main(String[] args) {
 		
 		Random r = new Random();
-		Configuration config = new Configuration().configure().addAnnotatedClass(Student.class).addAnnotatedClass(Laptop.class);
+		System.out.println("1");
+		Configuration config = new Configuration().configure().addAnnotatedClass(Laptop.class).addAnnotatedClass(Student.class);
 		SessionFactory sf = config.buildSessionFactory();
+		System.out.println("0");
 		Session session = sf.openSession();
 		session.beginTransaction();
-
+		
 		for(int i=1;i<=6;i++) {
 			
 			
@@ -51,12 +53,17 @@ public class App {
 		Laptop l5 = session.get(Laptop.class, 5);
 		Laptop l6 = session.get(Laptop.class, 6);
 		
+		System.out.println("2");
+		
 		ls.add(l1);
 		ls.add(l2);
 		Student s1 = session.get(Student.class, 1);
 		l1.setStudent(s1);
 		l2.setStudent(s1);
 		s1.setLaptop(ls);
+		
+		
+		System.out.println("3");
 		
 		List<Laptop> ls2 = new ArrayList<>();
 		ls2.add(l3);
@@ -66,6 +73,9 @@ public class App {
 		l3.setStudent(s2);
 		l4.setStudent(s2);
 		
+		
+		System.out.println("4");
+		
 		List<Laptop> ls3 = new ArrayList<>();
 		ls3.add(l5);
 		ls3.add(l6);
@@ -74,9 +84,12 @@ public class App {
 		l5.setStudent(s3);
 		l6.setStudent(s3);
 		
+		session.flush();
 		
 		session.getTransaction().commit();
+		session.clear();
 		session.close();
+		sf.close();
 	}
 	
 }

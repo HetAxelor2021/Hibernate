@@ -5,23 +5,11 @@
 <hibernate-configuration>
     <session-factory>
         <property name="hibernate.connection.driver_class">org.postgresql.Driver</property>
+        <property name="hibernate.connection.password">axelor</property>
         <property name="hibernate.connection.url">jdbc:postgresql://localhost:5433/neon</property>
-        <property name="connection.username">axelor</property>
-        <property name="connectio.password">axelor</property>
+        <property name="hibernate.connection.username">axelor</property>
         <property name="hibernate.dialect">org.hibernate.dialect.PostgreSQLDialect</property>
+        <property name="hbm2ddl.auto">create</property>
         <property name="show_sql">true</property>
-        <property name="hibernate.hbm2ddl.auto">create</property>
-        <property name="hibernate.cache.use_second_level_cache">true</property>
-        <property name="hibernate.cache.region.factory_class">org.hibernate.cache.ehcache.internal.EhcacheRegionFactory</property>
-        <property name="hibernate.cache.use_query_cache">true</property>
-        
-        
-        
-        <mapping class="com.hh.LaptopStudentProjEx.Alien" />
-        
-        
-        
-       <!-- <mapping class="com.hh.LaptopStudentProjEx.Student" />
-        <mapping class="com.hh.LaptopStudentProjEx.Laptop" /> --> 
     </session-factory>
 </hibernate-configuration>
