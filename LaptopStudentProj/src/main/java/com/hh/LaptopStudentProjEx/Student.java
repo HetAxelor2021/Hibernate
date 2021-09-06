@@ -20,7 +20,7 @@ public class Student {
 	
 	private int marks;
 	
-	@OneToMany(cascade = CascadeType.ALL)
+	@ManyToMany(cascade = CascadeType.ALL)
 	private List<Laptop> laptop = new ArrayList<Laptop>();
 	
 	
