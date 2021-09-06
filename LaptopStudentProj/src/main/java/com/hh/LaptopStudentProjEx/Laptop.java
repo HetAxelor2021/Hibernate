@@ -16,6 +16,16 @@ public class Laptop {
 	private String lname;
 	private int price;
 	
+	@ManyToOne
+	private Student student= new Student();
+//	
+	
+	public Student getStudent() {
+		return student;
+	}
+	public void setStudent(Student student) {
+		this.student = student;
+	}
 	public int getPrice() {
 		return price;
 	}
