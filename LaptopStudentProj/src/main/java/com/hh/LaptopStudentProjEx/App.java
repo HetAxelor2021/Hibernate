@@ -10,8 +10,6 @@ import java.util.Random;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.cfg.Configuration;
-//import org.hibernate.query.Query;
-//import org.hibernate.service.ServiceRegistry;
 
 public class App {
 	
@@ -54,12 +52,13 @@ public class App {
 		Laptop l6 = session.get(Laptop.class, 6);
 		
 		System.out.println("2");
-		
+		List<Student> lstu = new ArrayList<>();
 		ls.add(l1);
 		ls.add(l2);
 		Student s1 = session.get(Student.class, 1);
-		l1.setStudent(s1);
-		l2.setStudent(s1);
+		lstu.add(s1);
+//		l1.setStudent(s1);
+//		l2.setStudent(s1);
 		s1.setLaptop(ls);
 		
 		
@@ -70,19 +69,27 @@ public class App {
 		ls2.add(l4);
 		Student s2 = session.get(Student.class, 2);
 		s2.setLaptop(ls2);
-		l3.setStudent(s2);
-		l4.setStudent(s2);
-		
+//		l3.setStudent(s2);
+		lstu.add(s2);
+		l1.setStudent(lstu);
 		
 		System.out.println("4");
-		
+		List<Student> lstu2 = new ArrayList<>();
 		List<Laptop> ls3 = new ArrayList<>();
 		ls3.add(l5);
 		ls3.add(l6);
 		Student s3 = session.get(Student.class, 3);
 		s3.setLaptop(ls3);
-		l5.setStudent(s3);
-		l6.setStudent(s3);
+		lstu2.add(s3);
+		
+//		l5.setStudent(s3);
+//		l6.setStudent(s3);
+		
+		Student s4 = session.get(Student.class,4);
+		lstu2.add(s4);
+		l2.setStudent(lstu2);
+		
+		
 		
 		session.flush();
 		
