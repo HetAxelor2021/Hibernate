@@ -3,6 +3,7 @@ package com.hh.LaptopStudentProjEx;
 import java.util.ArrayList;
 import java.util.List;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.ManyToMany;
@@ -19,7 +20,7 @@ public class Student {
 	
 	private int marks;
 	
-	@OneToMany(mappedBy="student")
+	@OneToMany(mappedBy="student",cascade = CascadeType.ALL)
 	private List<Laptop> laptop = new ArrayList<Laptop>();
 	
 	

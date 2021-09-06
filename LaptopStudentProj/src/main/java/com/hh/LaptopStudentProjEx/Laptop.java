@@ -17,7 +17,7 @@ public class Laptop {
 	private int price;
 	
 	@ManyToOne
-	private Student student= new Student();
+	private Student student;
 //	
 	
 	public Student getStudent() {
