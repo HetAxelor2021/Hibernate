@@ -7,10 +7,13 @@ import javax.persistence.Id;
 import javax.persistence.Inheritance;
 import javax.persistence.InheritanceType;
 
+import org.hibernate.annotations.DiscriminatorFormula;
+
 @Entity
 @Inheritance
 (strategy = InheritanceType.SINGLE_TABLE)
 @DiscriminatorColumn(name="product_type",discriminatorType = DiscriminatorType.INTEGER)
+//@DiscriminatorFormula("case when author is not null then 1 else 2 end")
 public class MyProduct {
 	@Id
 	private long  productId;
