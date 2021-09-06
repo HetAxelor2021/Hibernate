@@ -3,7 +3,7 @@ package com.HH.InheritanceMappingProj;
 import javax.persistence.Entity;
 
 @Entity
-public class Pen extends MyProduct{
+public class Pen1 extends MyProduct{
 	private String color;
 
 	
