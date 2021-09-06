@@ -4,7 +4,8 @@ import javax.persistence.Entity;
 import javax.persistence.PrimaryKeyJoinColumn;
 
 @Entity
-@PrimaryKeyJoinColumn(name="petId")
+
+//@PrimaryKeyJoinColumn(name="petId")
 public class Pet extends Animal{
 	private String name;
 
